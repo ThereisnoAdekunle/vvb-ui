@@ -1,0 +1,87 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: rgba(7,7,15,0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,240,255,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+}
+.logo span { color: #00f0ff; }
+.nav nav { display: flex; gap: 2rem; }
+.nav nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav nav a:hover { color: #00f0ff; }
+.connect-btn {
+  background: linear-gradient(90deg, #00f0ff, #a855f7);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page {
+  padding: 4rem 8%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.box-card {
+  background: rgba(17,17,34,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.box-visual {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #334155, #1e293b);
+}
+.box-visual.common { background: linear-gradient(135deg, #64748b, #334155); }
+.box-visual.uncommon { background: linear-gradient(135deg, #22c55e, #166534); }
+.box-visual.rare { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+.box-visual.legendary { background: linear-gradient(135deg, #f59e0b, #b45309); box-shadow: 0 0 30px rgba(245,158,11,0.5); }
+
+.mission-card {
+  background: rgba(17,17,34,0.7);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.progress {
+  height: 8px;
+  background: #1e293b;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+.progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #a855f7);
+  border-radius: 4px;
+}
