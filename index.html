@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VVB — Play. Collect. Earn.</title>
+    <script src="https://cdn.ethers.io/lib/ethers-6.13.2.umd.min.js"></script>
+    <style>
+      :root {
+        --bg: #07070f;
+        --card: #111122;
+        --accent: #00f0ff;
+        --accent2: #a855f7;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+      }
+      body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.VVB_CONFIG = {
+        chainId: 4663,
+        chainIdHex: "0x1237",
+        rpc: "https://rpc.testnet.chain.robinhood.com",
+        explorer: "https://explorer.testnet.chain.robinhood.com",
+        website: "https://vibevibe.xyz",
+        launchpadRoot: "https://launchpad.vibevibe.xyz",
+        launchpadTokenUrl: "https://launchpad.vibevibe.xyz/token/vvb",
+        contracts: {
+          token: "0x0000000000000000000000000000000000000001",
+          nft: "0x0000000000000000000000000000000000000002",
+          staking: "0x0000000000000000000000000000000000000003",
+          gameNft: "0x0000000000000000000000000000000000000004",
+          burner: "0x0000000000000000000000000000000000000005",
+          marketplace: "0x0000000000000000000000000000000000000006"
+        },
+        threshold: "250000",
+        maxPerWallet: 2,
+        gameMinScore: 1000
+      };
+      window.VVBMotion = {
+        countUp: (el, value, opts = {}) => {
+          if (!el) return;
+          const duration = opts.duration || 1000;
+          const decimals = opts.decimals || 0;
+          const suffix = opts.suffix || "";
+          let start = 0;
+          const startTime = performance.now();
+          const animate = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const current = start + (value - start) * progress;
+            el.textContent = current.toFixed(decimals) + suffix;
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      };
+    </script>
+  </body>
+</html>
